@@ -36,6 +36,7 @@ function game() {
             }
         }
         let round = playRound(playerSelection, computerSelection);
+        console.log(round);
         if (round === 'You Lose! Paper beats rock' || round === 'You Lose! Scissors beats paper' || round === 'You Lose! Rock beats scissors') {
             computerScore++;
         } else if (round === 'You Win! Rock beats scissors' || round === 'You Win! Paper beats rock' || round === 'You Win! Scissors beats paper') {
@@ -48,7 +49,9 @@ function game() {
     if (computerScore > playerScore) {
         return 'Computer wins!'
     } else if (computerScore < playerScore) {
-        return 'You win!'
+        return 'You won!'
+    } else {
+        return 'Tied game!'
     }
 }
 console.log(game());
