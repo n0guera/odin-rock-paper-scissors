@@ -1,2 +1,7 @@
 # odin-rock-paper-scissors
-In this project I'm gonna make a simple Rock, Paper, Scissors game, browser-based.
+In this project I made a simple Rock, Paper, Scissors game, only playable via the browser's console.
+
+Some things to add later:
+-A GUI
+-Colors
+-Some animations
