@@ -44,7 +44,6 @@ function game() {
         }
         console.log(`Computer score is ${computerScore}`);
         console.log(`Player score is ${playerScore}`);
-        i++;
     }
     if (computerScore > playerScore) {
         return 'Computer wins!'
