@@ -1,3 +1,6 @@
+const outputBox = document.querySelector('#game-output');
+outputBox.style.cssText = "border: 2px blue solid; width: 150px; height: 150px; margin; 16px;";
+
 const rockBtn = document.querySelector('#rock-btn');
 rockBtn.addEventListener('click', playRoundRock);
 
@@ -13,13 +16,13 @@ function getComputerChoice() {
 }
 
 function playRoundRock() {
-    console.log(playRound('rock', getComputerChoice()));
+    document.getElementById('game-output').textContent = playRound('rock', getComputerChoice());
 }
 function playRoundPaper() {
-    console.log(playRound('paper', getComputerChoice()));
+    document.getElementById('game-output').textContent = playRound('paper', getComputerChoice());
 }
 function playRoundScissors() {
-    console.log(playRound('scissors', getComputerChoice()));
+    document.getElementById('game-output').textContent = playRound('scissors', getComputerChoice());
 }
 
 function playRound(playerSelection, computerSelection) {
