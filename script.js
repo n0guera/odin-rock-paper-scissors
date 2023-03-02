@@ -1,5 +1,3 @@
-let computerSelection = getComputerChoice();
-
 const rockBtn = document.querySelector('#rock-btn');
 rockBtn.addEventListener('click', playRoundRock);
 
@@ -15,13 +13,13 @@ function getComputerChoice() {
 }
 
 function playRoundRock() {
-    console.log(playRound('rock', computerSelection));
+    console.log(playRound('rock', getComputerChoice()));
 }
 function playRoundPaper() {
-    console.log(playRound('paper', computerSelection));
+    console.log(playRound('paper', getComputerChoice()));
 }
 function playRoundScissors() {
-    console.log(playRound('scissors', computerSelection));
+    console.log(playRound('scissors', getComputerChoice()));
 }
 
 function playRound(playerSelection, computerSelection) {
