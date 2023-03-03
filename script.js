@@ -75,10 +75,15 @@ function countScore(round) {
         playerScore++;
     }
     if (playerScore === 5) {
-        return outputBox.textContent = 'Player wins!!!'
-    }
-    if (computerScore === 5) {
-        return outputBox.textContent = 'Computer wins!!!'
+        rockBtn.removeEventListener('click', playRoundRock);
+        paperBtn.removeEventListener('click', playRoundPaper);
+        scissorsBtn.removeEventListener('click', playRoundScissors);
+        return outputBox.textContent = 'Player wins!!!';
+    } else if (computerScore === 5) {
+        rockBtn.removeEventListener('click', playRoundRock);
+        paperBtn.removeEventListener('click', playRoundPaper);
+        scissorsBtn.removeEventListener('click', playRoundScissors);
+        return outputBox.textContent = 'Computer wins!!!';
     }
 }
 
