@@ -10,19 +10,31 @@ paperBtn.addEventListener('click', playRoundPaper);
 const scissorsBtn = document.querySelector('#scissors-btn');
 scissorsBtn.addEventListener('click', playRoundScissors);
 
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let choice = ['Rock', 'Paper', 'Scissors'];
     return choice[Math.floor(Math.random() * choice.length)];
 }
 
 function playRoundRock() {
-    document.getElementById('game-output').textContent = playRound('rock', getComputerChoice());
+    let round = playRound('rock', getComputerChoice());
+    document.getElementById('game-output').textContent = round;
+    countScore(round);
+    outputScores();
 }
 function playRoundPaper() {
-    document.getElementById('game-output').textContent = playRound('paper', getComputerChoice());
+    let round = playRound('paper', getComputerChoice());
+    document.getElementById('game-output').textContent = round;
+    countScore(round);
+    outputScores();
 }
 function playRoundScissors() {
-    document.getElementById('game-output').textContent = playRound('scissors', getComputerChoice());
+    let round = playRound('scissors', getComputerChoice());
+    document.getElementById('game-output').textContent = round;
+    countScore(round);
+    outputScores();
 }
 
 function playRound(playerSelection, computerSelection) {
@@ -45,4 +57,17 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'scissors' && computerSelection === 'Scissors') {
         return "It's a tie";
     }
+}
+
+function countScore(round) {
+    if (round === 'You Lose! Paper beats rock' || round === 'You Lose! Scissors beats paper' || round === 'You Lose! Rock beats scissors') {
+        computerScore++;
+    } else if (round === 'You Win! Rock beats scissors' || round === 'You Win! Paper beats rock' || round === 'You Win! Scissors beats paper') {
+        playerScore++;
+    }
+}
+
+function outputScores() {
+    document.getElementById('game-output').textContent += `\nComputer score is ${computerScore}`;
+    document.getElementById('game-output').textContent += `\nPlayer score is ${playerScore}`;
 }
