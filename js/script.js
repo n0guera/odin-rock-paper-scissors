@@ -2,7 +2,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 const outputBox = document.querySelector('#game-output');
-outputBox.style.cssText = "border: 2px blue solid; width: 150px; height: 150px; margin; 16px;";
+outputBox.style.cssText = "border: 2px blue solid; width: 300px; height: 300px; margin; 32px;";
 
 const rockBtn = document.querySelector('#rock-btn');
 rockBtn.addEventListener('click', playRoundRock);
