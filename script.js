@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 const outputBox = document.querySelector('#game-output');
 outputBox.style.cssText = "border: 2px blue solid; width: 150px; height: 150px; margin; 16px;";
 
@@ -10,8 +13,14 @@ paperBtn.addEventListener('click', playRoundPaper);
 const scissorsBtn = document.querySelector('#scissors-btn');
 scissorsBtn.addEventListener('click', playRoundScissors);
 
-let playerScore = 0;
-let computerScore = 0;
+const roundOutput = document.createElement('p');
+outputBox.appendChild(roundOutput);
+
+const computerScoreOutput = document.createElement('p');
+outputBox.appendChild(computerScoreOutput);
+
+const playerScoreOutput = document.createElement('p');
+outputBox.appendChild(playerScoreOutput);
 
 function getComputerChoice() {
     let choice = ['Rock', 'Paper', 'Scissors'];
@@ -20,19 +29,19 @@ function getComputerChoice() {
 
 function playRoundRock() {
     let round = playRound('rock', getComputerChoice());
-    document.getElementById('game-output').textContent = round;
+    roundOutput.textContent = round;
     countScore(round);
     outputScores();
 }
 function playRoundPaper() {
     let round = playRound('paper', getComputerChoice());
-    document.getElementById('game-output').textContent = round;
+    roundOutput.textContent = round;
     countScore(round);
     outputScores();
 }
 function playRoundScissors() {
     let round = playRound('scissors', getComputerChoice());
-    document.getElementById('game-output').textContent = round;
+    roundOutput.textContent = round;
     countScore(round);
     outputScores();
 }
@@ -65,9 +74,15 @@ function countScore(round) {
     } else if (round === 'You Win! Rock beats scissors' || round === 'You Win! Paper beats rock' || round === 'You Win! Scissors beats paper') {
         playerScore++;
     }
+    if (playerScore === 5) {
+        return outputBox.textContent = 'Player wins!!!'
+    }
+    if (computerScore === 5) {
+        return outputBox.textContent = 'Computer wins!!!'
+    }
 }
 
 function outputScores() {
-    document.getElementById('game-output').textContent += `\nComputer score is ${computerScore}`;
-    document.getElementById('game-output').textContent += `\nPlayer score is ${playerScore}`;
+    computerScoreOutput.textContent = `Computer score is ${computerScore}`;
+    playerScoreOutput.textContent = `Player score is ${playerScore}`;
 }
